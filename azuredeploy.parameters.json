@@ -1,0 +1,48 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "publicIPAddressDnsName": {
+      "value": "penawebdev"
+    },
+    "backendPublicIPAddressDnsName": {
+      "value": "penadbdev"
+    },
+    "numberOfInstances": {
+      "value": 1
+    },
+    "domainName": {
+      "value": "aprojectguru.com"
+    },
+    "dbName": {
+      "value": "aprojectgurudb"
+    },
+    "adminUsername": {
+      "value": "agus"
+    },
+    "adminPassword": {
+      "reference": {
+        "keyVault": {
+          "id": "/subscriptions/68da01f6-7176-4526-b7e6-baddc1517c8f/resourceGroups/BaseResourceGroup-SEA/providers/Microsoft.KeyVault/vaults/AgusSuhantoVault"
+        },
+        "secretName": "adminPassword"
+      }
+    },
+    "dbPassword": {
+      "reference": {
+        "keyVault": {
+          "id": "/subscriptions/68da01f6-7176-4526-b7e6-baddc1517c8f/resourceGroups/BaseResourceGroup-SEA/providers/Microsoft.KeyVault/vaults/AgusSuhantoVault"
+        },
+        "secretName": "dbPassword"
+      }
+    },
+    "sshKeyData": {
+      "reference": {
+        "keyVault": {
+          "id": "/subscriptions/68da01f6-7176-4526-b7e6-baddc1517c8f/resourceGroups/BaseResourceGroup-SEA/providers/Microsoft.KeyVault/vaults/AgusSuhantoVault"
+        },
+        "secretName": "sshKeyData"
+      }
+    }
+  }
+}
