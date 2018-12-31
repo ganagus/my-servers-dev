@@ -20,13 +20,13 @@ sudo apt-get install -y php-curl php-gd php-mbstring php-mcrypt php-xml php-xmlr
 sudo sed -i "s/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/g" /etc/php/7.0/fpm/php.ini
 sudo service nginx start
 sudo systemctl restart php7.0-fpm
-sudo wget https://raw.githubusercontent.com/ganagus/my-servers/master/configs/nginx/config -O /etc/nginx/sites-available/$1
+sudo wget https://raw.githubusercontent.com/ganagus/my-servers-dev/master/configs/nginx/config -O /etc/nginx/sites-available/$1
 sudo sed -i "s/<domainName>/$1/g" /etc/nginx/sites-available/$1
 sudo ln -s /etc/nginx/sites-available/$1 /etc/nginx/sites-enabled/
 sudo systemctl reload nginx
 
 # Upload existing wordpress configuration file
-sudo wget https://raw.githubusercontent.com/ganagus/my-servers/master/configs/wordpress/wp-config.php -O /var/www/$1/wp-config.php
+sudo wget https://raw.githubusercontent.com/ganagus/my-servers-dev/master/configs/wordpress/wp-config.php -O /var/www/$1/wp-config.php
 sudo sed -i "s/<dbName>/$2/g" /var/www/$1/wp-config.php
 sudo sed -i "s/<dbPassword>/$3/g" /var/www/$1/wp-config.php
 sudo sed -i "s/<backendIPAddress>/$4/g" /var/www/$1/wp-config.php
@@ -38,7 +38,7 @@ sudo chown $5:www-data /var/www/$1/wp-config.php
 sudo rm /var/www/$1/wp-config-sample.php
 
 # Copy configure-letsencrypt.sh to /root
-sudo wget https://raw.githubusercontent.com/ganagus/my-servers/master/scripts/configure-letsencrypt.sh -O /root/configure-letsencrypt.sh
+sudo wget https://raw.githubusercontent.com/ganagus/my-servers-dev/master/scripts/configure-letsencrypt.sh -O /root/configure-letsencrypt.sh
 sudo chmod a+x /root/configure-letsencrypt.sh
 
 # Install dotnet core

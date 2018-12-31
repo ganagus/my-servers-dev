@@ -488,7 +488,7 @@
             "autoUpgradeMinorVersion": true,
             "settings": {
               "fileUris": [
-                "https://raw.githubusercontent.com/ganagus/my-servers/master/scripts/configure-web-server.sh"
+                "https://raw.githubusercontent.com/ganagus/my-servers-dev/master/scripts/configure-web-server.sh"
               ]
             },
             "protectedSettings": {
@@ -618,7 +618,7 @@
             "autoUpgradeMinorVersion": true,
             "settings": {
               "fileUris": [
-                "https://raw.githubusercontent.com/ganagus/my-servers/master/scripts/configure-db-server.sh"
+                "https://raw.githubusercontent.com/ganagus/my-servers-dev/master/scripts/configure-db-server.sh"
               ]
             },
             "protectedSettings": {

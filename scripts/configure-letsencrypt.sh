@@ -20,7 +20,7 @@ set -o errexit
 
 # Configure letsencrypt certificates
 sudo mkdir -p /etc/letsencrypt
-sudo wget https://raw.githubusercontent.com/ganagus/my-servers/master/configs/letsencrypt/cli.ini -O /etc/letsencrypt/cli.ini
+sudo wget https://raw.githubusercontent.com/ganagus/my-servers-dev/master/configs/letsencrypt/cli.ini -O /etc/letsencrypt/cli.ini
 sudo sed -i "s/<domainName>/$1/g" /etc/letsencrypt/cli.ini
 export HOME="/root"
 export PATH="${PATH}:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
@@ -34,10 +34,10 @@ sudo certbot-auto certonly
 sudo openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048
 
 # Configure letsencrypt renewal cron job
-sudo wget https://raw.githubusercontent.com/ganagus/my-servers/master/cron-jobs/certbot-renew.sh -O /etc/cron.daily/certbot-renew.sh
+sudo wget https://raw.githubusercontent.com/ganagus/my-servers-dev/master/cron-jobs/certbot-renew.sh -O /etc/cron.daily/certbot-renew.sh
 sudo chmod a+x /etc/cron.daily/certbot-renew.sh
 
 # Change nginx config file for the domain
-sudo wget https://raw.githubusercontent.com/ganagus/my-servers/master/configs/nginx/config.ssl -O /etc/nginx/sites-available/$1
+sudo wget https://raw.githubusercontent.com/ganagus/my-servers-dev/master/configs/nginx/config.ssl -O /etc/nginx/sites-available/$1
 sudo sed -i "s/<domainName>/$1/g" /etc/nginx/sites-available/$1
 sudo nginx -s reload
